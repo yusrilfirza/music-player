@@ -13,6 +13,7 @@ import { LayoutSidebar } from '../sidebar';
 export const LayoutBase = (props) => {
     // const dispatch = useDispatch();
     const state = useSelector((rootState) => rootState.base);
+    const { sidebarStatus } = props;
 
     // eslint-disable-next-line no-unused-vars
     const showNotification = () => {
@@ -47,6 +48,20 @@ export const LayoutBase = (props) => {
         toast(bodyMessage, options);
     };
 
+    const renderLayout = () => {
+        let layoutBody = (
+            <div className="flex">
+                <LayoutHeader loginStatus />
+                <LayoutSidebar />
+            </div>
+        );
+        if (!sidebarStatus) {
+            layoutBody = (
+                <LayoutHeader loginStatus={false} />
+            );
+        }
+        return layoutBody;
+    };
     // useEffect(() => {
     //     if (state.is_notification_show) {
     //         toast.dismiss();
@@ -77,12 +92,9 @@ export const LayoutBase = (props) => {
     return (
         <div className="app font-sans antialiased">
             <ToastContainer />
-            <div className="flex">
-                <LayoutHeader />
-                <LayoutSidebar />
-            </div>
+            {renderLayout()}
             <div className="app-body">
-                <main className="main md:mr-60 px-20 py-8 text-white min-h-body relative">
+                <main className={`${!sidebarStatus ? 'w-9/12 mx-auto' : 'pl-20 md:mr-72 px-20'} main py-8 text-white min-h-body relative`}>
                     {/* <LayoutBreadcrumb {...props} /> */}
                     {children}
                 </main>

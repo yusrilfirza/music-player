@@ -12,6 +12,7 @@ import { LayoutBase } from './components/layouts/base';
 import { LayoutModal } from './components/layouts/modal';
 
 import { PageDashboard } from './pages/dashboard';
+import { PageLogin } from './pages/login';
 
 const routes = [
     {
@@ -33,21 +34,27 @@ export const AppRoute = () => {
         return <Redirect to={!isLogin ? '/login' : '/dashboard'} />;
     };
 
-    // const renderLoginPage = () => {
-    //     const isLogin = isLoggedIn();
-    //     document.title = `${PROJECT_TITLE} | Login`;
-    //     return !isLogin ? <Comp {...props} /> : <Redirect to={HOME_PAGE_ROUTE_PATH} />;
-    // };
+    const renderLoginPage = (Comp, props) => {
+        // const isLogin = isLoggedIn();
+        const loginLayout = (
+            <LayoutBase sidebarStatus={false} {...props}>
+                <Comp {...props} />
+            </LayoutBase>
+        );
+        // document.title = `${PROJECT_TITLE} | Login`;
+        // return !isLogin ? <Comp {...props} /> : <Redirect to={HOME_PAGE_ROUTE_PATH} />;
+        return loginLayout;
+    };
 
     const PrivateRoute = ({ component: Comp, title, ...rest }) => {
         const render = (props) => {
             const isLogin = isLoggedIn();
             return isLogin ? (
-                <LayoutBase {...props}>
+                <LayoutBase sidebarStatus {...props}>
                     <Comp {...props} />
                 </LayoutBase>
             ) : (
-                <LayoutBase {...props}>
+                <LayoutBase sidebarStatus {...props}>
                     <Comp {...props} />
                 </LayoutBase>
                 // <Redirect to="/login" />
@@ -92,7 +99,7 @@ export const AppRoute = () => {
             <BrowserRouter>
                 <ModalSwitch renderModal={renderModal}>
                     <Route exact path="/" render={() => renderRootPath()} />
-                    {/* <Route path="/login" render={(props) => renderLoginPage(PageLogin, props)} /> */}
+                    <Route path="/login" render={(props) => renderLoginPage(PageLogin, props)} />
                     {pageRoutes}
                     {modalRoutes}
                     {/* <Route component={PageNotFound} /> */}

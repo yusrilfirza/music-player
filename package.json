@@ -9,6 +9,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@headlessui/react": "^1.4.1",
     "@hookform/resolvers": "^0.1.1",
     "@nivo/line": "^0.62.0",
     "@nivo/pie": "^0.62.0",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
     faChevronRight, faChevronLeft, faSearch,
 } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DropdownProfile } from '../../partials/dropdown/profile';
 
 export const LayoutHeader = (props) => {
+    const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
     const { loginStatus } = props;
 
@@ -17,6 +18,29 @@ export const LayoutHeader = (props) => {
     const renderLogo = () => (
         <Link to="/dashboard" className="nav-brand h-full w-36 bg-main-bold_gray-half" />
     );
+
+    const renderSearchbar = () => {
+        const { pathname } = history.location;
+        let searchButton = (
+            <Link to="/search" className="bg-white rounded-full h-auto px-3 py-1">
+                <FontAwesomeIcon icon={faSearch} className="text-main-bold_gray-lite text-sm" />
+            </Link>
+        );
+        if (pathname === '/search') {
+            searchButton = (
+                <button type="button" className="bg-white rounded-full h-auto px-3 ml-3 py-1">
+                    <FontAwesomeIcon icon={faSearch} className="text-main-bold_gray-lite text-sm" />
+                </button>
+            );
+        }
+
+        return (
+            <div className={`rounded-full bg-white flex ${pathname === '/search' ? 'pl-8' : ''} mr-8`}>
+                <input className={`${pathname === '/search' ? 'w-full' : 'w-0'} transition-width focus:outline-none`} placeholder="Search" />
+                {searchButton}
+            </div>
+        );
+    };
 
     const renderHeaderItem = () => {
         let headerItem = (
@@ -33,9 +57,9 @@ export const LayoutHeader = (props) => {
                     </div>
                 </div>
                 <div className="flex items-center">
-                    <Link to="/search" className="bg-white rounded-full h-auto px-3 py-1 mr-8">
-                        <FontAwesomeIcon icon={faSearch} className="text-main-bold_gray-lite text-sm" />
-                    </Link>
+                    {
+                        renderSearchbar()
+                    }
                     <DropdownProfile open={isOpen} onClick={onClickProfile} />
                 </div>
             </div>

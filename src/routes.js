@@ -18,7 +18,12 @@ const routes = [
     {
         path: '/dashboard',
         component: PageDashboard,
-        title: 'Dashboard Summary',
+        title: 'Dashboard',
+    },
+    {
+        path: '/search',
+        component: PageDashboard,
+        title: 'Search',
     },
 ];
 

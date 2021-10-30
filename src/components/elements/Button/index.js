@@ -10,7 +10,7 @@ function Button(props) {
 
     if (type === 'link') {
         return (
-            <Link to={to} className={className} style={style} onClick={onClick}>
+            <Link to={to} className={className} style={style}>
                 {children}
             </Link>
         );

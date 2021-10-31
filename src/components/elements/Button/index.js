@@ -36,10 +36,10 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    type: propTypes.oneOf(['button', 'link']),
+    type: '',
     onClick: propTypes.func,
-    to: propTypes.string,
-    className: propTypes.string,
+    to: '',
+    className: '',
 };
 
 export default Button;

@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DropdownProfile } from '../../partials/dropdown/profile';
+import BrandIcon from '../../elements/IconText';
 
 export const LayoutHeader = (props) => {
     const history = useHistory();
@@ -16,13 +17,6 @@ export const LayoutHeader = (props) => {
     const onClickProfile = () => {
         setIsOpen(!isOpen);
     };
-
-    const renderLogo = () => (
-        <Link
-            to="/dashboard"
-            className="nav-brand h-full w-36 bg-main-bold_gray-half"
-        />
-    );
 
     const renderSearchbar = () => {
         const { pathname } = history.location;
@@ -72,7 +66,7 @@ export const LayoutHeader = (props) => {
         let headerItem = (
             <div className="pl-20 pr-10 flex justify-between w-full">
                 <div className="flex">
-                    {renderLogo()}
+                    <BrandIcon />
                     <div className="grid grid-cols-2 gap-8 ml-8">
                         <button type="button">
                             <FontAwesomeIcon
@@ -97,7 +91,7 @@ export const LayoutHeader = (props) => {
         if (!loginStatus) {
             headerItem = (
                 <div className="flex w-9/12 mx-auto justify-between">
-                    {renderLogo()}
+                    <BrandIcon />
                     <div className="grid grid-cols-2 gap-4">
                         <button
                             type="button"

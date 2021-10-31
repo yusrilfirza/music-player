@@ -3,7 +3,7 @@ import Button from '../../elements/Button';
 
 function partialHero() {
     return (
-        <section className="">
+        <section>
             <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/img/hero_0.png)`, objectFit: 'contain', backgroundRepeat: 'no-repeat' }} className="pb-72 pt-64">
                 <h1 className="flex justify-center items-center font-bold text-3xl">
                     Start Listening to

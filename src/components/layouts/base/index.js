@@ -9,6 +9,7 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 // import { clearNotification, setSessionExpired } from './action';
 import { LayoutHeader } from '../header';
 import { LayoutSidebar } from '../sidebar';
+import { LayoutFooter } from '../footer';
 
 export const LayoutBase = (props) => {
     // const dispatch = useDispatch();
@@ -98,8 +99,8 @@ export const LayoutBase = (props) => {
                     {/* <LayoutBreadcrumb {...props} /> */}
                     {children}
                 </main>
-                {/* <LayoutFooter /> */}
             </div>
+            <LayoutFooter />
             {/* <PartialSessionExpired open={state.is_session_expired} /> */}
         </div>
     );

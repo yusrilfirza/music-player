@@ -22,3 +22,19 @@ code {
   background-image: url('./logo_musicplay.png');
   background-size: auto 45%;
 }
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #06CDC1;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}

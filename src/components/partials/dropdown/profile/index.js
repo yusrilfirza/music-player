@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
-import { faSortDown, faSignOutAlt, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSortDown, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const DropdownProfile = () => (
@@ -32,7 +32,7 @@ export const DropdownProfile = () => (
                                     className={`text-white block mx-1 rounded-md hover:bg-main-bold_gray px-4 py-2 text-sm ${active ? 'bg-main-bold_gray' : ''}`}
                                     id="menu-item-0"
                                 >
-                                    <FontAwesomeIcon icon={faUserAlt} className="text-white mr-4" />
+                                    <FontAwesomeIcon icon={faUser} className="text-white mr-4" />
                                     <span>Profile</span>
                                 </Link>
                             )

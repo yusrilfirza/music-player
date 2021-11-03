@@ -12,7 +12,7 @@ import { LayoutBase } from './components/layouts/base';
 import { LayoutModal } from './components/layouts/modal';
 
 import { PageDashboard } from './pages/dashboard';
-import { PageLogin } from './pages/login';
+import { PageLanding } from './pages/landingPage';
 
 const routes = [
     {
@@ -39,7 +39,7 @@ export const AppRoute = () => {
         return <Redirect to={!isLogin ? '/login' : '/dashboard'} />;
     };
 
-    const renderLoginPage = (Comp, props) => {
+    const renderLandingPage = (Comp, props) => {
         // const isLogin = isLoggedIn();
         const loginLayout = (
             <LayoutBase sidebarStatus={false} {...props}>
@@ -104,7 +104,7 @@ export const AppRoute = () => {
             <BrowserRouter>
                 <ModalSwitch renderModal={renderModal}>
                     <Route exact path="/" render={() => renderRootPath()} />
-                    <Route path="/login" render={(props) => renderLoginPage(PageLogin, props)} />
+                    <Route path="/login" render={(props) => renderLandingPage(PageLanding, props)} />
                     {pageRoutes}
                     {modalRoutes}
                     {/* <Route component={PageNotFound} /> */}

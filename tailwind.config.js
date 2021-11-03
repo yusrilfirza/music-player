@@ -23,6 +23,7 @@ module.exports = {
                     lite: '#BCBCBC',
                 },
             },
+            blue_main: '#06CDC1',
             current: 'currentColor',
             transparent: 'transparent',
             black: colors.black,

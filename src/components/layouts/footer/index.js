@@ -24,7 +24,6 @@ export const LayoutFooter = () => {
     const [audioContainer, setAudioContainer] = useState({});
     const [isRepeating, setIsRepeating] = useState(false);
 
-
     const myContainer = useRef(null);
 
     useEffect(() => {

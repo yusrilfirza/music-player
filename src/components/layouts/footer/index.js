@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { createPopper } from '@popperjs/core';
 import { useLocation } from 'react-router';
 import {
     faPlay,
@@ -7,7 +6,6 @@ import {
     faForward,
     faRetweet,
     faRandom,
-    faVolumeUp,
     faHeart,
     faEllipsisV,
     faPause,
@@ -17,6 +15,7 @@ import useKeypress from 'react-use-keypress';
 
 import BrandIcon from '../../elements/IconText';
 import Button from '../../elements/Button';
+import { VolumeIcon } from '../../elements/VolumeIcon';
 
 export const LayoutFooter = () => {
     const location = useLocation();
@@ -24,14 +23,6 @@ export const LayoutFooter = () => {
     const [isPlay, setIsPlay] = useState(false);
     const [audioContainer, setAudioContainer] = useState({});
     const [isRepeating, setIsRepeating] = useState(false);
-    const [isShowed, setIsShowed] = useState(false);
-
-    const volume = document.querySelector('#volume');
-    const tooltip = document.querySelector('#tooltip');
-
-    createPopper(volume, tooltip, {
-        placement: 'top',
-    });
 
     const myContainer = useRef(null);
 
@@ -58,15 +49,6 @@ export const LayoutFooter = () => {
     const setVolume = (e) => {
         audio.volume = e.currentTarget.value / 100;
     };
-
-    const popVolume = () => (
-        <div id="volume" aria-describedby="tooltip" className="my-auto cursor-pointer" onMouseEnter={() => setIsShowed(!isShowed)} onMouseLeave={() => setIsShowed(!isShowed)}>
-            <FontAwesomeIcon icon={faVolumeUp} className="my-auto text-white" size="sm" />
-            <div id="tooltip" role="tooltip" className={`pb-2 px-2 rounded-md bg-black ${isShowed ? '' : 'hidden'} focus:outline-none text-white`}>
-                <input onChange={setVolume} type="range" className="h-0.5" />
-            </div>
-        </div>
-    );
 
     const setProgress = (e) => {
         const { clientWidth } = e.currentTarget;
@@ -345,7 +327,7 @@ export const LayoutFooter = () => {
                         >
                             <track kind="captions" />
                         </audio>
-                        {popVolume()}
+                        <VolumeIcon onChange={setVolume} />
                         <FontAwesomeIcon
                             icon={faHeart}
                             className="mx-5 my-auto text-white"

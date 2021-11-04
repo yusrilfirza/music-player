@@ -1,10 +1,11 @@
 import React from 'react';
+import ListTrack from '../../components/partials/ListTrack';
 
 export const PageDashboard = () => (
-    <div>
-        <h1>Let's Goo Dashboard </h1>
+    <>
+        <ListTrack />
         <h1>sjadakdskasndkjd</h1>
-    </div>
+    </>
 );
 
 export default PageDashboard;

@@ -94,7 +94,7 @@ export const LayoutBase = (props) => {
         <div className="app font-sans antialiased">
             <ToastContainer />
             {renderLayout()}
-            <div className="app-body">
+            <div className="app-body w-full">
                 <main className={`${!sidebarStatus ? 'w-9/12 mx-auto' : 'pl-20 md:mr-72 px-20'} main text-white min-h-body relative`}>
                     {/* <LayoutBreadcrumb {...props} /> */}
                     {children}

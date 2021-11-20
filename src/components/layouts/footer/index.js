@@ -347,7 +347,7 @@ export const LayoutFooter = () => {
 
     return (
         <footer
-            className={`w-screen border-t border-main-dark_green-half bg-main-bold_gray-half ${
+            className={`w-full border-t border-main-dark_green-half bg-main-bold_gray-half ${
                 pathname !== '/login' ? 'fixed bottom-0' : ''
             }`}
         >

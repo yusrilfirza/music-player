@@ -34,6 +34,7 @@ module.exports = {
                 30: 'rgba(255,255,255,0.3)',
                 10: 'rgba(255,255,255,0.1)',
             },
+            blue: colors.blue,
             gray: colors.trueGray,
             indigo: colors.indigo,
             red: colors.rose,
@@ -53,15 +54,6 @@ module.exports = {
             thin: '0 0 0 1px rgba(24, 50, 115, 1)',
             none: 'none',
             whiteOutline: '0 0 0 2px rgba(255, 255, 255, 0.6)',
-        },
-        borderRadius: {
-            none: '0',
-            sm: '0.125rem',
-            DEFAULT: '4px',
-            md: '5px',
-            lg: '10px',
-            xl: '12px',
-            full: '9999px',
         },
         rotate: {
             '-180': '-180deg',

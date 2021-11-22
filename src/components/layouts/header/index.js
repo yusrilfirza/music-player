@@ -8,15 +8,29 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DropdownProfile } from '../../partials/dropdown/profile';
 import BrandIcon from '../../elements/IconText';
+import ModalLogin from '../../elements/Modal';
 
 export const LayoutHeader = (props) => {
     const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [btnHead, setBtnHead] = useState();
+
     const { loginStatus } = props;
 
     const onClickProfile = () => {
         setIsOpen(!isOpen);
     };
+
+    function changeModalOpenSign() {
+        setModalOpen(true);
+        setBtnHead('signup');
+    }
+
+    function changeModalOpenLogin() {
+        setModalOpen(true);
+        setBtnHead('login');
+    }
 
     const renderSearchbar = () => {
         const { pathname } = history.location;
@@ -96,12 +110,14 @@ export const LayoutHeader = (props) => {
                         <button
                             type="button"
                             className="bg-main-bold_gray-half text-white font-semibold rounded-full px-5 py-2 border-2 border-main-dark_green-half"
+                            onClick={changeModalOpenSign}
                         >
                             Sign up
                         </button>
                         <button
                             type="button"
                             className="bg-main-dark_green-half text-white font-semibold rounded-full px-5 py-2"
+                            onClick={changeModalOpenLogin}
                         >
                             Log in
                         </button>
@@ -113,15 +129,22 @@ export const LayoutHeader = (props) => {
     };
 
     return (
-        <header
-            className={`py-5 bg-main-bold_gray-half flex ${
-                !loginStatus
-                    ? 'border-b border-main-dark_green-half'
-                    : 'w-full mr-72'
-            }`}
-        >
-            {renderHeaderItem()}
-        </header>
+        <>
+            <header
+                className={`py-5 bg-main-bold_gray-half flex ${
+                    !loginStatus
+                        ? 'border-b border-main-dark_green-half'
+                        : 'w-full mr-72'
+                }`}
+            >
+                {renderHeaderItem()}
+            </header>
+            <ModalLogin
+                iniOpen={modalOpen}
+                gantiOpen={setModalOpen}
+                whichBtn={btnHead}
+            />
+        </>
     );
 };
 

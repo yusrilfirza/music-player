@@ -40,3 +40,24 @@ code {
 }
 
 
+.tag {
+    z-index: 3;
+    padding: 0.25rem 0.75rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 24px;
+    font-weight: 400;
+}
+
+.img-item::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.5));
+}

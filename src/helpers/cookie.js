@@ -1,4 +1,3 @@
-import moment from 'moment';
 import cookie from 'react-cookies';
 
 const CryptoJS = require('crypto-js');
@@ -37,7 +36,6 @@ export const generateAuthCookies = (resp) => {
         [`${process.env.REACT_APP_PROJECT}_isLoggedIn`]: true,
         [`${process.env.REACT_APP_PROJECT}_accessToken`]: resp.data.access_token,
         [`${process.env.REACT_APP_PROJECT}_refreshToken`]: resp.data.refresh_token,
-        [`${process.env.REACT_APP_PROJECT}_timeOut`]: moment().unix() + resp.data.expires_in - 600,
     });
     return authCookies;
 };
@@ -45,8 +43,6 @@ export const generateAuthCookies = (resp) => {
 export const generateProfileCookies = (resp) => {
     const profileCookies = _.assign({
         [`${process.env.REACT_APP_PROJECT}_username`]: resp.data.username,
-        [`${process.env.REACT_APP_PROJECT}_roles`]: resp.data.roles,
-        [`${process.env.REACT_APP_PROJECT}_id`]: resp.data.id,
     });
     return profileCookies;
 };

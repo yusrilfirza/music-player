@@ -82,13 +82,13 @@ export const LayoutHeader = (props) => {
                 <div className="flex">
                     <BrandIcon />
                     <div className="grid grid-cols-2 gap-8 ml-8">
-                        <button type="button">
+                        <button type="button" onClick={() => history.goBack()}>
                             <FontAwesomeIcon
                                 icon={faChevronLeft}
                                 className="text-white"
                             />
                         </button>
-                        <button type="button">
+                        <button type="button" onClick={() => history.goForward()}>
                             <FontAwesomeIcon
                                 icon={faChevronRight}
                                 className="text-white"

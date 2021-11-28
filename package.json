@@ -26,6 +26,7 @@
         "axios": "^0.20.0",
         "crypto-js": "^4.0.0",
         "file-saver": "^2.0.2",
+        "formik": "^2.2.9",
         "fsevents": "^2.3.2",
         "history": "^5.0.0",
         "lodash": "^4.17.20",
@@ -57,7 +58,7 @@
         "web-vitals": "^2.1.2",
         "xlsx": "^0.16.8",
         "yarn": "^1.22.17",
-        "yup": "^0.29.3"
+        "yup": "^0.32.11"
     },
     "scripts": {
         "build:tailwind": "postcss src/styles/index.css -o src/styles.output.css",
